@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.percy.reto3_mobile.models.Coinmarket;
-import com.example.percy.reto3_mobile.models.CoinmarketRpta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> listDatos;
     RecyclerView recyclerView ;
     private Retrofit retrofit;
+    AdapterDatos adapterDatos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +37,6 @@ public class MainActivity extends AppCompatActivity {
         obtenerDatos();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerId);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        listDatos = new ArrayList<String>();
-        for(int i=0; i<50;i++){
-            listDatos.add("Dato :" + i +"");
-        }
-
-        AdapterDatos adapterDatos = new AdapterDatos(listDatos);
-        recyclerView.setAdapter(adapterDatos);
-
 
     }
 
@@ -57,11 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Coinmarket>> call, Response<List<Coinmarket>> response) {
                 if(response.isSuccessful()){
-                    List<Coinmarket> mainDataJsonResponse = response.body();
-                    for(int i=0; i<mainDataJsonResponse.size();i++) {
-                        Coinmarket c =mainDataJsonResponse.get(i);
-                        Log.e(TAG,"EXITO:"+ c.getId());
-                    }
+                    setData(response.body());
                 }
             }
 
@@ -70,6 +56,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG,"on Failure:"+ t.getMessage());
             }
         });
+
+    }
+
+    private void setData(List<Coinmarket> body) {
+        adapterDatos = new AdapterDatos(body);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapterDatos);
 
     }
 }

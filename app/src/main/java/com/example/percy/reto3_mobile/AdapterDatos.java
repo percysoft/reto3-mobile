@@ -6,7 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.percy.reto3_mobile.models.Coinmarket;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by percy on 21/02/18.
@@ -14,9 +17,9 @@ import java.util.ArrayList;
 
 public class AdapterDatos  extends RecyclerView.Adapter<AdapterDatos.ViewHolderDatos>{
 
-    ArrayList<String> listDatos;
+    List<Coinmarket> listDatos;
 
-    public AdapterDatos(ArrayList<String> listDatos) {
+    public AdapterDatos(List<Coinmarket> listDatos) {
         this.listDatos = listDatos;
     }
 
@@ -29,12 +32,16 @@ public class AdapterDatos  extends RecyclerView.Adapter<AdapterDatos.ViewHolderD
 
     @Override
     public void onBindViewHolder(ViewHolderDatos holder, int position) {
-        holder.asignarDatos(listDatos.get(position));
+        holder.dato.setText(listDatos.get(position).getId());
     }
 
     @Override
     public int getItemCount() {
         return listDatos.size();
+    }
+
+    public void addItem(List<Coinmarket> mainDataJsonResponse) {
+        listDatos.addAll(mainDataJsonResponse);
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
