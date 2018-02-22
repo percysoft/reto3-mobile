@@ -33,6 +33,11 @@ public class AdapterDatos  extends RecyclerView.Adapter<AdapterDatos.ViewHolderD
     @Override
     public void onBindViewHolder(ViewHolderDatos holder, int position) {
         holder.dato.setText(listDatos.get(position).getId());
+        holder.nameBickoint.setText(listDatos.get(position).getName());
+        holder.nameSymbol.setText(listDatos.get(position).getSymbol());
+        holder.percent_change_24h.setText(listDatos.get(position).getPercent_change_24h());
+        holder.percent_change_7h.setText(listDatos.get(position).getPercent_change_7d());
+        holder.price_usd.setText(listDatos.get(position).getPrice_usd());
     }
 
     @Override
@@ -46,12 +51,16 @@ public class AdapterDatos  extends RecyclerView.Adapter<AdapterDatos.ViewHolderD
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
 
-        TextView dato;
+        TextView dato,nameBickoint,nameSymbol,percent_change_24h,percent_change_7h,price_usd;
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-
             dato = (TextView) itemView.findViewById(R.id.idDato);
+            nameBickoint = (TextView) itemView.findViewById(R.id.nameBickoint);
+            nameSymbol = (TextView) itemView.findViewById(R.id.nameSymbol);
+            percent_change_24h = (TextView) itemView.findViewById(R.id.percent_change_24h);
+            percent_change_7h = (TextView) itemView.findViewById(R.id.percent_change_7h);
+            price_usd = (TextView) itemView.findViewById(R.id.price_usd);
         }
 
         public void asignarDatos(String datos) {

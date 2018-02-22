@@ -1,11 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/idDato"
-        />
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/blue_facebook"
+        android:background="@drawable/border_linear"
+        android:padding="10dp"
+        >
 
-</LinearLayout>
+        <TextView
+            android:text="id"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:id="@+id/idDato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="nameBickoint"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:id="@+id/nameBickoint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="nameSymbol"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:id="@+id/nameSymbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="percent_change_24h"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:id="@+id/percent_change_24h"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="percent_change_7h"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:id="@+id/percent_change_7h"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="price_usd"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            android:id="@+id/price_usd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</RelativeLayout>
